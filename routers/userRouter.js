@@ -148,7 +148,7 @@ router.get("/logOut", (req, res) => {
           process.env.NODE_ENV === "development"
             ? false
             : process.env.NODE_ENV === "production" && true,
-        expired: newData(0),
+        expires: newData(0),
       })
       .send();
   } catch (error) {

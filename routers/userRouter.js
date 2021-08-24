@@ -137,7 +137,20 @@ router.post("/signup", async (req, res) => {
 
 router.get("/logOut", (req, res) => {
   try {
-    res.clearCookie("token").send();
+    res
+      .cookie("token", "", {
+        httpOnly: true,
+        sameSite:
+          process.env.NODE_ENV === "development"
+            ? "lax"
+            : process.env.NODE_ENV === "production" && "none",
+        secure:
+          process.env.NODE_ENV === "development"
+            ? false
+            : process.env.NODE_ENV === "production" && true,
+        expired: newData(0),
+      })
+      .send();
   } catch (error) {
     return res.json(null);
   }

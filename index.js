@@ -44,3 +44,7 @@ mongoose.connect(
 // set up routes
 
 app.use("/auth", require("./routers/userRouter"));
+app.use("/channel", require("./routers/channelRouter"));
+app.use("/reviewer", require("./routers/reviewerRouter"));
+app.use("/rating", require("./routers/ratingRouter"));
+app.use("/game", require("./routers/gameRouter"));

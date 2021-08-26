@@ -8,7 +8,8 @@ router.get("/", auth, async (req, res) => {
       return res.status(401).json({ errorMessage: "Unauthorized." });
     }
     const ratings = await Rating.find()
-      .populate("reviewer")
+      .populate({ path: "reviewer", populate: { path: "channel" } })
+
       .sort("reviewer.name")
       .sort("year")
       .sort("rank");

@@ -32,12 +32,13 @@ router.get("/search", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    let gameId = req.query.gameId;
+    let gameIds = req.query.gameIds;
+    console.log(gameIds);
 
-    if (!gameId) {
+    if (!gameIds) {
       return res.status(400).json({ errorMessage: "No Game ID Given" });
     }
-    const gameResponse = await getBGAtlasGame(gameId);
+    const gameResponse = await getBGAtlasGame(gameIds);
 
     res.json({ data: gameResponse.data });
   } catch (error) {

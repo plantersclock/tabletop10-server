@@ -12,7 +12,12 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://tabletop10.netlify.app"],
+    origin: [
+      "http://localhost:3000",
+      "https://tabletop10.netlify.app",
+      "https://tabletop10.com",
+      "https://www.tabletop10.com",
+    ],
     credentials: true,
   })
 );

@@ -33,7 +33,6 @@ router.get("/search", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     let gameIds = req.query.gameIds;
-    console.log(gameIds);
 
     if (!gameIds) {
       return res.status(400).json({ errorMessage: "No Game ID Given" });

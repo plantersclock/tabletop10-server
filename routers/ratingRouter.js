@@ -2,11 +2,8 @@ const router = require("express").Router();
 const Rating = require("../models/ratingModel");
 const auth = require("../middleware/auth");
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    if (!req.user) {
-      return res.status(401).json({ errorMessage: "Unauthorized." });
-    }
     const ratings = await Rating.find()
       .populate({ path: "reviewer", populate: { path: "channel" } })
 

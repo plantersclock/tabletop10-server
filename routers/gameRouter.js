@@ -15,7 +15,7 @@ const getBGAtlasGame = async (gameId) => {
   );
 };
 
-router.get("/search", auth, async (req, res) => {
+router.get("/search", async (req, res) => {
   try {
     let name = req.query.name;
 
@@ -30,7 +30,7 @@ router.get("/search", auth, async (req, res) => {
   }
 });
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     let gameId = req.query.gameId;
 

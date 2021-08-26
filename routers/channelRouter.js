@@ -2,11 +2,8 @@ const router = require("express").Router();
 const Channel = require("../models/channelModel");
 const auth = require("../middleware/auth");
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    if (!req.user) {
-      return res.status(401).json({ errorMessage: "Unauthorized." });
-    }
     const channels = await Channel.find();
 
     res.json(channels);
